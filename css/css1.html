@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 定位：
+            position,
+            需要配合top/bottom,left/right使用;
+
+            绝对定位：position: absolute;
+                absolute,特点：释放原来的位置,别的标签可以占用,自己移到另外一个层面了不影响其它的元素
+                        定位参照物：absolute它针对的是有position属性的父元素;直接父级没有的话,继续向上一级找,直到找到;否则就是body了
+
+            相对定位：position:relative;
+                relative,特点：不释放原有的位置,别的标签无法占用,它移到了另外一个层面了;
+                        定位参照物：relative是对原有的位置定位的
+
+            根据上面absolute,relative的特定,我们一般用relative作为参照物,用absolute去定位
+
+
+            fixed,参考对象对应的是浏览器;
+            让一个div在屏幕的中央：
+                .center{
+                    position:fixed;
+                    width:100px;
+                    height:100px;
+                    top:50%;
+                    left:50%;
+                    //问题,因为对应的是左,上;所以有点稍微的偏离,那如何调整过来呢?可以用负数
+                    margin-left:-50px;
+                    margin-top:-50px;
+                }
+            
+            说到了定位,既然有层的说法,就有了z-index:0,默认为0,越大就离我们越近,就是最上面了
+
+            border-radius,圆角0%-100%
+
+            margin-top,在父子中用的时候,有时候会发现,子节点的margin-top不管用,必须要设置的比父级的margin-top还大才有用,不过父级和它一起动了,这是一个bug
+                        这个bug叫做,margin塌陷,因为父级没有border,导致这样的问题;那如何解决呢?可以设置父有border-top,不过这种方式比较残暴,不太好;
+                        bfc,下面有具体的
+            
+            bfc:block format content,块级格式化上下文,修改渲染规则
+                如何触发bfc呢?有如下几种,那一种都有一定的问题,只能说解决了问题,但也会引发其他的问题,所以到时候根据情况来选择使用哪种,
+                1.position: absolute;
+                2.overflow: hidden;多出来的隐藏,在父级里面增加,不过他可以解决margin塌陷,加上了它就可以了用margin-top了;
+                3.float: right/left;
+                4.display:inline-block;
+             */
+            
+            .border_width_style{
+                border-style: solid;
+                border-width: 5px;
+                display: inline-block;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                position: absolute;
+            }
+            
+            .div1{
+                border-color:  #f00;
+            }
+            
+            .div2{
+                border-color:  #ff0;
+                margin: 0px 25px;
+            }
+            
+            .div3{
+                border-color:  #f0f;
+            }
+            
+            .div4{
+                border-color:  #0ff;
+            }
+
+            .div5{
+                border-color:  #00f;
+            }
+
+            .wrapper{
+                height: 300px;
+                width: 700px;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                margin-top: -150px;
+                margin-left: -350px;
+                border: 1px solid #FFAA99;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="border_width_style div1"></div>
+        <div class="border_width_style div2"></div>
+        <div class="border_width_style div3"></div>
+        <div class="border_width_style div4"></div>
+        <div class="border_width_style div5"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6是怎样定义类的</title>
+</head>
+<body>
+    <script>
+        class Persion{
+            constructor(name,age){// 构造函数,可以接收参数
+                this.name = name;
+                this.age = age||this.age;// 这样也是可以定义成员变量的
+            }
+            name = 'hehe';// 成员变量,不需要修饰;
+            age = 0;
+            
+            showName(){
+                return `${this.name}名称是：${this.name}`;
+            }
+
+            showAge(){
+                return `年龄：${this.age}`;
+            }
+
+            set aaa (params) {
+                console.log('调用了set aaas');
+            }
+
+            get aaa (){
+                console.log('diaoyongle get aaa');
+            }
+        }
+        let p = new Persion('jiege');
+        console.log(p.showName());
+        console.log(p.showAge());
+        p.aaa = 1;
+        p.aaa;
+    </script>
+</body>
+</html>

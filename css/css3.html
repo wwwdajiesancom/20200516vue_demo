@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 浮动：float:right/left
+        
+            让元素站队,它们的站队是根据父级的宽了的,当子元素的width+padding+border+margin>parentTotal,就会换行了
+
+            使用了float它的影响：
+                1.浮动元素产生了浮动流
+                    a.所有产生了浮动流的元素,块级元素都看不到它;
+                    b.产生了bfc(4中情况)的元素和文本类(inline,inline-block)的元素可以看到它们
+
+                问题：
+                    当父级块元素,不设置height的时候,子元素用了float,父元素就包裹不住子元素了,这个怎么解决？
+                        为什么会出现这种问题呢？因为float产生了浮动流,所以才出现了这种问题
+                        那么我们可以在增加一个块元素,增加清楚浮动流:clear:both;就可以解决这种问题
+                        最好是用父级元素的after伪元素来做{
+                            content:'',
+                            clear:both;
+                            dispaly:block;
+                        }
+
+                        clear,使用它的时候是清楚浮动流;并且操作的是块级元素
+
+                        使用position:absolute,flout:rigth/left,打内部将元素变成了inline-block了;
+                2.float,最早是用在文字环绕的效果里面;
+        
+         */
+
+         .wrapper{
+             border: 1px solid #000;
+         }
+
+         .content{
+             position: absolute;
+             float: left;
+             border: 1px solid #f00;
+             height: 100px;
+             width: 100px;
+             background-color: #ff0;
+         }
+
+         p{
+             clear:both;
+         }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <p></p>
+    </div>
+
+</body>
+</html>

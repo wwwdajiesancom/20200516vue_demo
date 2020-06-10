@@ -1,0 +1,94 @@
+<!-- html根标签,里面有2个结构化标签:head,body -->
+<!-- lang,他和收缩引擎有关系 -->
+<html lang="en">
+	<!-- head,设置浏览器的一些特性 -->
+	<head>
+		<!-- 页面编码设置 -->
+		<meta charset="UTF-8">
+        <meta name="keyworlds" content="html、css">
+        <meta name="description" content="html完整学习、css的牛叉表现" >
+		<!-- 标注一些网页叫什么名字 -->
+		<title>ES的初始学习</title>
+	</head>
+	<!-- body,展现给用户看的 -->
+	<body>
+        
+        <!-- p:段落标签,每一个修饰,都呈段落的展现 -->
+        <p>p标签：大家好！！！，都呈段落的展现</p>
+
+        <!-- h1,h2,h3,h4,h5,h6:6级标题标签 -->
+        <h1>h1-h6,增大、都呈段落的展现、都加粗</h1>
+        <h2>大家好！！！</h2>
+        <h3>大家好！！！</h3>
+        <h4>大家好！！！，正常的字体大小</h4>
+        <h5>大家好！！！</h5>
+        <h6>大家好！！！</h6>
+
+        <strong>strong,加粗，不换行；</strong>
+        <em>em,斜体，不换行；</em>
+
+        <del>del,携带中划线；</del>
+
+        <address>address,独占一行、斜体</address>
+
+        <div>
+            <p>div,独占一行;<strong>1.可以充当容器,给页面分块,可以结构化操作;</strong><strong>2.具有捆绑操作,如果想改变多个标签中的字体颜色,可以直接在外面增加容器，并操作容器样式;</strong></p>
+            <p><strong>3.空格,叫做英文单词分隔符;如果一个固定宽度、高度的div中，一连串的英文，是不会自动换行的,浏览器认为它是一个单词;中文会换行,因为一个中文就是一个中文</strong></p>
+        </div>
+        <span>`span;   无效果`</span>
+
+        <div>
+            <h3>html编码：</h3>
+            <h4>&开头;结尾</h4>
+        </div>
+
+        <div>
+            回车标签br：
+            <br>
+            水平线标签hr：
+            <hr>
+            同时,br,hr,meta都是单标签;双标签主要是展示他们标签之间的文本,而独自一个可以实现功能的叫做单标签
+        </div>
+
+        <div>
+            <h3>ol:有序列表,不常用；有属性:type=1,a,A,i,I;倒叙：reversed=reversed;从哪个开始:start=数字</h3>
+            <ol type="1" reversed="reversed" start="2">
+                <li>烦劳</li>
+                <li>加比例</li>
+                <li>大河</li>
+            </ol>
+            <h3>ul:无序列表,较常用;有属性：type=disc[实心圆],square[方块],circle[空心圆]</h3>
+            <ul>
+                <li>烦劳</li>
+                <li>加比例</li>
+                <li>大河</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>img:src,图片的地址;alt,当图片地址错误时,可以给个提示;title,当鼠标移到图片上的时候,会有一个角标提示</h3>
+            <img style="height: 300px;width: 150px;" alt="图片占位符" title="图片提示符" src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1591279331&di=01ca21c051ca4dcad8219b64ea5bd948&src=http://hbimg.b0.upaiyun.com/e9c0871fe111ce790c22052ed395ac19a8a9200ba5afa-VLWA3b_fw658" >
+        </div>
+        
+        <div>
+            <h3>a:href=hyperText reference,超文本引用 ;无具体的效果,字体颜色变换了;它可以包含任意的标签;属性：target:_blank,_self,</h3>
+            <h3>a,另外的功能,锚点;在元素上增加id,a的href="#id"</h3>
+            <h3>a,另外的功能,打电话:href="tel:15838022425";也可以发送邮件:href="mailto:791200469@qq.com"</h3>
+            <h3>a,另外的功能,协议限定符,href="javascript:alert('让你手贱');"，里面可以写javascript代码</h3>
+            <a href="http://www.baidu.com" target="_blank">www.baidu.com</a><a href="http://www.baidu.com">www.baidu.com</a>
+            <a href="tel:15838022425">给杰哥打电话</a>
+        </div>
+
+        <div>
+            <h3>form表单,input标签</h3>
+            <form type='get' action="">
+                <p>用户名：<input type="text" name='username'/></p>
+                <p>密码：<input type="password" name="password" /></p>
+                <input type="radio" name="a" value="a"/>a
+                <input type="radio" name="a" value="b"/>b
+                <input type="radio" name="a" value="c"/>c
+                <input type="submit" value="login" />
+            </form>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Promise,主要提供了来个方法,resolve=ajax成功之后调用的方法,reject=ajax失败后调用的方法
+        // then(resolve,reject) = then(function(){},function(){});如果then里面只写一个方法,默认是成功
+        // catch(reject),处理失败
+        new Promise(function(resolve,reject){
+            setTimeout(() => {
+                let v = Math.random();
+                if(v>0.5)resolve(v+"resolve");
+                else reject(v+'reject');
+            }, 3000);
+        }).then(function(res){
+            console.log(res);
+        }).catch(function(err){
+            console.log(err);
+        }).finally(function(){
+            console.log('finally');
+        });
+    </script>
+</body>
+</html>

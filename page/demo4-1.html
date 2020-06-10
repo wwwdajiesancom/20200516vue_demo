@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vue-router</title>
+        <script src="../js/vue.js"></script>
+        <script src="../js/vue-router.js"></script>
+    </head>
+    <body >
+        <div id="app">
+            <router-link to="/com1">主页</router-link>
+            <router-link to="/com2">详情</router-link>
+            <!-- router-link,需要和roter-view一起使用,router-view它是组件内容显示的地方 -->
+            <router-view></router-view>
+        </div>
+        <template id="com2">
+            <div>
+                <h2>我是组件2</h2>
+                <router-link to="/com2/zilu1?name=jiege&id=13">子路由1</router-link>
+                <router-link to="/com2/zilu2/jiegehao/31">子路由2</router-link>
+                <router-view></router-view>
+            </div>
+        </template>
+        <script>
+            // 为什么要有路由呢?它是做了一个路径向组件跳转的对应,用到了组件router-link,router-view
+            // 怎么实现路由呢?
+            // 路由,还有子路由,在路由中增加children,就是子路由了
+            // 路由参数,分2中,1.?name=&id=;2./name/id,rest风格;分别:?用$route.query.name;rest用$route.params.name,不过rest需要在路由里面定义参数的名称
+            // 分为4步,因为涉及到了组件及路由,所以
+            // 1.定义组件
+            var com1 = {
+                template:'<div>我是组件1</div>'
+            }
+            var com2 = {
+                template:'#com2'
+            }
+            var zilu1 = {
+                template:'<div>我是子路由1:{{$route.query.name}}--{{$route.query.id}}</div>'
+            }
+            var zilu2 = {
+                template:'<div>我是子路由2:{{$route.params.name}}--{{$route.params.id}}</div>'
+            }
+            // 2.定义VueRouter
+            var router = new VueRouter({
+                routes:[
+                    {name:'主页',path:'/com1',component:com1},// 他算是一个路由,路径与组件之间的关系
+                    {name:'详情',path:'/com2',component:com2,// 最顶层的路由path,需要携带/开头
+                        children:[
+                            {path:'zilu1',component:zilu1},// 子路由path不需要/开头
+                            {path:'zilu2/:name/:id',component:zilu2},
+                            {path:'/',redirect:'zilu2'}
+                        ]
+                    },
+                    {name:'默认配置路径',path:'/',redirect:'/com1'},// 配置默认路径
+                ],
+                // mode:'history',// 打开的路径里面都有#号(这是hash处理了),如果写成history就没有了#号
+            });
+            var vm = new Vue({
+                el:'#app',// 页面使用了vue的范围指定
+                router:router,// 添加vuerouter,到vue实例中
+                data:{// 定义页面属性
+                },
+                methods: {// 可以定义页面使用的方法
+                },
+                computed: {
+                },
+                watch: {
+                },
+            });
+        </script>
+    </body>
+</html>

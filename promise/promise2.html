@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let a1 = Promise.resolve('abc1');// 将abc1变成一个promise对象
+        let a2 = Promise.resolve('abc2');
+        //let b1 = Promise.reject('bcd1');
+        let b2 = Promise.reject('bcd2');
+
+        Promise.all([a1,b2]).then(function(res){
+            console.log('all-then');
+        }).catch(function(res){
+            console.log('all-catch');
+        });// 都成功了会调用then;否则调用catch
+
+        Promise.race([a1,b2]).then(function(res){
+            console.log('race-then');
+        }).catch(function(res){
+            console.log('race-catch');
+        });// 有一个成功就走成功
+
+    </script>
+</body>
+</html>

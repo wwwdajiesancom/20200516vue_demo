@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue中常用的方法</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body >
+        <div id="app">
+            <div ref="xxx">{{msg}}</div>
+        </div>
+
+        <script>
+            var vm = new Vue({
+                el:'#app',// 页面使用了vue的范围指定
+                data:{// 定义页面属性
+                    msg:'abcd-xxxx',ox:'杰哥好'
+                },
+                methods: {// 可以定义页面使用的方法
+                },
+                computed: {
+                },
+            });
+            console.log(vm.msg);// abcd-xxxx
+            console.log(vm.$refs.xxx.textContent);// abcd-xxxx
+            vm.msg = 'jiege'
+            console.log(vm.msg);// jiege,页面上也显示的是,jiege
+            console.log(vm.$refs.xxx.textContent);// abcd-xxxx,这里面为什么没有变化呢,因为dom元素的跟新也是需要时间的,所以这里是还没有更新过了;我们可以用setTimeout来验证;
+            setTimeout(() => {
+                console.log('setTimeout:'+vm.$refs.xxx.textContent);// 验证过后,果然如此,那怎么可以直接的使用呢,这里面就用到了$nextTick(function(){})方法了
+            }, 2000);
+            vm.$nextTick(function(){
+                console.log('nextTick:'+vm.$refs.xxx.textContent);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1></com1>
+        <hello></hello>
+    </div>
+    <script>
+        //<template></template>,在vue中规定,它里面只能有一个根元素
+        //<template><div>abc</div></template>,这是正确的
+        //<template><div>abc</div><div>abc2</div></template>,这是错误的,abc2是显示不出来的
+        // 定义了一个全局组件
+        Vue.component('com1',{// 需要注意的是,组件的名称都是小写
+            template:'<h1>我是全局组件</h1>'// 如果这里面的内容比较多的话,我们就要用到了<template id='t1'></template>,template:'#t1'
+        });
+        var vm = new Vue({
+            el:'#app',
+            components:{
+                'hello':{
+                    template:'<h2>我是局部组件</h2>'
+                }
+            },
+            data:{
+            },
+            methods:{
+            },
+        });
+    </script>
+</body>
+</html>

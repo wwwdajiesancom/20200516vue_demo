@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5是怎么定义类的</title>
+</head>
+<body>
+    
+    <script>
+        function Persion(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Persion.prototype.showName=function(){
+            return `名称是：${this.name}`;
+        }
+        Persion.prototype.showAge=function(){
+            return `年龄是：${this.age}`;
+        }
+        
+        function Student(name,age,school){
+            Persion.call(this,name,age);
+
+            this.school = school;
+
+        }        
+        Student.prototype = new Persion();
+
+        Student.prototype.getSchool=function(){
+            return `所属学校：${this.school}`;
+        }
+
+
+        let stu = new Student('loujie',30,'河南大学');
+
+        console.log(stu.getSchool());
+        console.log(stu.showAge());
+        console.log(stu.showName());
+    </script>
+</body>
+</html>

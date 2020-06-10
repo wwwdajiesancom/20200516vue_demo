@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件之间的通信</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <fuqin></fuqin>
+        <c1></c1>
+        <c2></c2>
+    </div>
+    <template id="t1">
+        <div>
+            我是父组件{{attr1}}--{{attr3}}
+            <br />
+            <erzi @e-xxx="getErziParams"></erzi>
+        </div>
+    </template>
+    <template id="t2">
+        <div>
+            我是子组件{{attr2}}
+            <input type="button" value="传值给父亲" @click="okClick" />
+        </div>
+    </template>
+    <template id="c1">
+        <div>c1template
+
+            ----{{c2attr}}
+        </div>
+    </template>
+    <template id="c2">
+        <div>c2template</div>
+    </template>
+    <script>
+        // 组件只能调用自己的属性,父组件不可调用子组件的属性,子组件也不能调用父组件的属性
+        // 使用,子组件只能在父组件中使用
+
+        // 如何使子组件可以调用父组件的属性呢,需要2步:
+        // 1.传参,<erzi :attr1="attr1"></erzi>
+        // 2.在子组件中声明,props:['attr1'];这里面的属性名称,需要与v-bind中的名字一致
+
+        // props,详细的用法,它可以定义属性的类型[type:[]]、是否可为空[required:true]、默认值[default:100]、进行验证[validator:function(value){return boolean;}]
+
+        // 如何是父组件,可以调用子组件的属性呢,
+        // 我们来分析一下,父亲什么时候可以调用子组件的属性,因为先有了父亲,而后才有的子组件,所以直接的调用子属性肯定是不行的,一定需要间接才可以
+        // 经上分析,我们需要做如下5步:
+        // 1.在父组件里面定义一个接收属性;attr3;因为你想在父组件里面使用属性,肯定要自己定义的;父传子的时候,是在子组件props中定义的;
+        // 2.在父组件里面定义一个接收属性方法;方法名字叫做getErziParams,将子组件通过$emit传递的值接收过来
+        // 3.在子组件里面必须有一个触发机制,使可以调用到父组件的方法,但子组件不可以直接的调用父组件的方法,所以还是需要间接,通过事件触发,我们这是通过input的click事件,调用事件名称okClick;当然,我们也可以结合vue的生命周期来实现
+        // 4.我们input.click之后，它肯定要调用一个方法的，方法里面用this.$emit('o-xxx',参数,[]);o-xxx:它是一个事件类型,这样它可以接收一个父亲的方法
+        // 5.在子组件里面绑定上面的事件;<erzi @o-xxx="getErziParams">
+
+        // 兄弟组件之间如何传递参数呢,
+        // 分析一下,兄弟之间怎么传递参数,感觉和子传父差不多,但是还是不同;通过$emit定义事件,触发一个方法,但是因为他们之间没有关系,所以不行
+        // 经过查看文档,可以这样实现;假如有组件c1、c2;c2向c1传值
+        // 1.首先需要一个空的Vue对象;var nvm = new Vue({});
+        // 2.在c2中的生命周期方法mounted(){}写nvm.$emit('ox',shuxing);
+        // 3.在c1定义接收属性,在mounted(){}中写nvm.$on('ox',(shuxing)=>{});赋值在这里面
+        // 要注意的是,两个组件同时调用才有效果
+        var nvm = new Vue({});
+        var vm = new Vue({
+            el:'#app',
+            components:{
+                'c1':{
+                    template:'#c1',
+                    data(){
+                        return {
+                            attrc1:'c1',
+                            c2attr:'',
+                        }
+                    },
+                    mounted() {
+                        nvm.$on('e-oxx',(attrc2)=>{
+                            this.c2attr = attrc2;
+                        });
+                    },
+                },
+                'c2':{
+                    template:'#c2',
+                    data(){
+                        return {
+                            attrc2:'c2'
+                        }
+                    },
+                    mounted() {
+                        nvm.$emit('e-oxx',this.attrc2);
+                    },
+                },
+                'fuqin':{
+                    template:'#t1',
+                    data(){
+                        return {
+                            attr1:'Fuqin-Attr1',
+                            attr3:'',
+                        }
+                    },
+                    methods:{
+                        getErziParams(attr2){
+                            this.attr3 = attr2;
+                        }
+                    },
+                    components:{
+                        'erzi':{
+                            template:'#t2',
+                            data(){
+                                return{
+                                    attr2:'Erzi-Attr2'
+                                }
+                            },
+                            methods:{
+                                okClick(){
+                                    this.$emit('e-xxx',this.attr2);
+                                }
+                            },
+                            mounted() {
+                                // 可以通过生命周期方法,来实现子传父参数的触发
+                            },
+                            props:['attr1']
+                        }
+                    }
+                }
+            },
+            data:{
+            },
+            methods:{
+            },
+        });
+    </script>
+</body>
+</html>

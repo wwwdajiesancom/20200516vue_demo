@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(a){
+            console.log(a);// function a(){return 'a'}
+            var a = '123';
+            console.log(a);// 123
+            
+            function a(){return 'a'}
+            console.log(a);// 123 // 因为提升了,所以到这里就没有用了
+            console.log(b); // undefined
+            var b = function(){return 'b';}
+            console.log(b);// function(){return 'b';}
+            function d(){return 'd'};
+        }
+        fn('a');
+    </script>
+</body>
+</html>

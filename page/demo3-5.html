@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue中的watch监听</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body >
+        <div id="app">
+            <div ref="xxx">{{user.name}}</div>
+            <input type="text" v-model="user.name" />
+
+        </div>
+
+        <script>
+            // watch,监听属性的变化而触发的方法
+            // 如果是简单属性监听,比较简单,但是如果是复杂对象的监听就需要用到了handler
+            var vm = new Vue({
+                el:'#app',// 页面使用了vue的范围指定
+                data:{// 定义页面属性
+                    msg:'abcd-xxxx',
+                    user:{
+                        id:1,
+                        name:'jiege'
+                    }
+                },
+                methods: {// 可以定义页面使用的方法
+                },
+                computed: {
+                },
+                watch: {
+                    msg:function(newV,oldV){
+                        console.log('newV:' + newV + ',oldV:'+oldV);
+                    },
+                    "user.name":function(newV,oldV){
+                        console.log('user.name=newV:' + newV + ',oldV:'+oldV);
+                    },
+                    user:{
+                        handler:function(newV,oldV){
+                            console.log('newV:' + newV.name + ',oldV:'+oldV.name);
+                        },
+                        deep:true,
+                    }
+                },
+            });
+        </script>
+    </body>
+</html>

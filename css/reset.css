@@ -1,0 +1,107 @@
+/* 如何引用
+
+    css模块化,
+        @规则：
+            @charset    设置编码
+            @import     导入其它的文件
+            @meida      媒体查询,
+            @font-face  自定义字体
+*/
+
+body,p,h1,h2,h3,h4{
+    margin: 0px;
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+img{
+    border: none;
+    vertical-align: middle;
+}
+
+a{
+    text-decoration: none;
+    color: #6c6c6c;
+}
+
+i{
+    font-style: normal;
+}
+
+input,button{
+    margin: 0px;
+    padding: 0px;
+}
+
+button{
+    /* 当获取焦点的时候会有一个蓝色边框,我们并不需要 */
+    outline: none;
+}
+
+body{
+    /* 字体大小/行高 字体family */
+    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+
+    /* 
+    line-height: normal;
+    
+    line-height: 50px;固定的值
+    
+    line-height: 2em;
+    line-height: 200%;
+    line-height: 1.5;倍数,最好用这个
+
+    为什么呢？
+    用小数,下面的标签都会继承它;
+    如果不用,虽然也会继承,但是继承的是compute之后的值;
+    也就是说小数,继承的是倍数;不用小数,继承的是父标签计算之后的值,就是px
+
+    '\5b8b\4f53':'宋体':SimSun;因为有时候用汉字会出现一些问题,所以这里用的是万国码,unicode
+    '微软雅黑':Miscrosoft YaHei
+
+     */
+     color: #3c3c3c;
+     background-color: #f4f4f4;
+}
+
+/* 预定义的样式 */
+.clearfix{
+    /* 清除浮动 */
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float : right;
+}
+
+.leayer{
+    /* 定义宽度,居中 */
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.c4{
+    color: #F40;
+}
+
+.c5{
+    color: #F50;
+}
+
+.mt10{
+    margin-top: 10px;
+}
+
+.mr10{
+    margin-right: 10px;
+}

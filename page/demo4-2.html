@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title id="title_lj">xxx</title>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/vue.js"></script>
+        <script src="../js/vue-i18n.js"></script>
+        <script src="../js/vue-meta.js"></script>
+        <script src="../js/common/lang/en.js"></script>
+        <script src="../js/common/lang/zh.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            {{$t('message.music')}}{{getI18n('message.myMusic')}}
+            <input type="button" value="切换" @click="qiehuan" />
+        </div>
+        <script src="../js/common.js"></script>
+        <script src="../js/i.js" type="module"></script>
+    </body>
+</html>

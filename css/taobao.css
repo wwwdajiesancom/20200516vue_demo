@@ -1,0 +1,159 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    font-size: 12px;
+    color: #6c6c6c;
+    text-decoration: none;
+}
+
+div.top{
+    height: 40px;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.width{
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.width_{
+    width: 1190px;
+}
+
+div.top .all {
+    height: 40px;
+}
+
+div.top .all .left2{
+    float: left;
+    line-height: 40px;
+}
+
+div.top .all .rigth2{
+    float: right;
+    line-height: 40px;
+}
+
+div.top .all .left2 .select_lan{
+    color: #000;
+}
+
+div.top .all .left2 .login{
+    color: #f40;
+    margin: 0px 0px 0px 10px;
+}
+
+div.top .all .left2 a.free_reg{
+    margin: 0px 10px 0px 0px;
+}
+
+div.top .all .left2 a:hover{
+    color: #f40;
+}
+
+.center_div > div{
+    width: 1190px;
+    margin: 0px auto;
+}
+
+.center_div .guanggao{
+    margin-bottom: -3px;
+}
+
+.center_div .guanggao img{
+    height: 70px;
+}
+
+.center_div .sousuo{
+    height: 120px;
+}
+
+.center_div .sousuo > div{
+    float: left;
+}
+
+.center_div .sousuo .img{
+    height: 100%;
+    width: 143px;
+    background-image: url(https://img.alicdn.com/tfs/TB1_uT8a5ERMeJjSspiXXbZLFXa-143-59.png);
+    background-size: 143px 59px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.center_div .sousuo .c_sousuo{
+    height: 100%;
+    width: 610px;
+    margin: 0px 100px;
+}
+
+.center_div .sousuo .c_sousuo .div1{
+    border-radius: 45px;
+    height: 35px;
+    border: 2px solid #f40;
+}
+
+.center_div .sousuo .c_sousuo .div1::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.center_div .sousuo .c_sousuo .input{
+    float: left;
+    border-radius: 45px;
+    height: 35px;
+    width: 540px;
+    border: 1px solid black;
+}
+
+.center_div .sousuo .c_sousuo .button{
+    float: left;
+    height: 37px;
+    width: 60px;
+    border: 1px solid black;
+}
+
+.center_div .sousuo .c_sousuo ul li{
+    display: inline;
+}
+
+.center_div .sousuo .erweima{
+    height: 100%;
+
+}
+
+.center_div .sousuo .erweima > span{
+    float: left;
+    margin-top: 10px;
+    border: 1px solid #CCC;
+    padding: 1px 4px;
+    font-size: 8px;
+    cursor: pointer;
+    color: #CCC;
+}
+
+.center_div .sousuo .erweima a{
+    margin-top: 10px;
+    display: inline-block;
+    height: 90px;
+    width: 80px;
+    border: 1px solid #CCC;
+    text-align: center;
+    padding: 2px 6.5px 4px;
+}
+
+.center_div .sousuo .erweima a span{
+    color: #f40;
+}
+
+.center_div .sousuo .erweima a img{
+    width: 65px;
+    height: 65px;
+}
+
+
+

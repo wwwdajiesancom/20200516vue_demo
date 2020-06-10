@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>
+        .searchContent{
+            width: 630px;
+            margin: 0 auto;
+        }
+        /* 【1】 ,用float的时候最好给一个height*/
+        .searchContent .searchTab{
+            height: 22px;
+        }
+        .searchContent .searchTab li{
+            float: left;
+            width: 36px;
+            margin: 0 4px 0 0;
+            text-align: center;
+            line-height: 22px;
+            color: #f40;
+
+        }
+        .searchContent .searchTab li.active{
+            border-radius: 5px 5px 0 0;
+            /* 渐变效果 IE10+
+                第一个参数：从left到right;
+                第二个参数：从什么颜色开始,#FF9000
+                第二个参数: 到什么颜色结束,#ff5000
+            */
+            background-image: linear-gradient(to right,#FF9000,#ff5000);
+            /* 要兼容IE,就用到了滤镜,只能在IE中用
+            */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff9000', endColorstr='#ffff5000', GradientType=1);
+            /* 其它浏览器的兼容:
+            background-image: -webkit-linear-gradient(left,#ff9000 0,#ff5000 100%);
+            background-image: -o-linear-gradient(left,#ff9000 0,#ff5000 100%); */
+            color: #fff;
+            font-weight: bold;
+            
+        }
+        .searchContent .searchTab li:hover{
+            background-color: #ff5400;
+        }
+
+    </style>
+</head>
+<body>
+
+        <!-- 搜索，怎么写
+            一看，可以分为3个模块了：
+                【1】【宝贝、天猫、店铺】作为一个ul
+                【2】【搜索】这部分作为一个div,它是由2部分组成,输入框,查询按钮
+                【3】下面也是一个div中存放的a标签
+        -->
+        <!-- 如下代码： -->
+        <div class="searchContent">
+            <!-- 【1】 -->
+            <ul class="searchTab clearfix">
+                <li class="active">宝贝</li>
+                <li>天猫</li>
+                <li>店铺</li>
+            </ul>
+
+            <!-- 【2】 -->
+            <div class="searchDiv clearfix">
+                <div class="searchBox fl">
+                    <input type="text">
+                    <div class="placehoder">
+                        <span>放大镜</span>
+                        <span>字体</span>
+                    </div>
+                    <span class="icon"></span>
+                </div>
+                <div class="searchBtn fr">
+                    <button>搜索</button>
+                </div>
+            </div>
+
+            <!-- 【3】 -->
+            <div class="list">
+                <a href="#">新款连衣裙</a>
+                <a href="#">四件套</a>
+                <a href="#">潮流T恤</a>
+                <a href="#">时尚女鞋</a>
+                <a href="#">短裤</a>
+                <a href="#">半身裙</a>
+                <a href="#">男士外套</a>
+                <a href="#">墙纸</a>
+                <a href="#">行车记录仪</a>
+                <a href="#">新款男鞋</a>
+                <a href="#">耳机</a>
+                <a href="#">时尚女包</a>
+                <a href="#">沙发</a>
+            </div>
+        </div>
+
+</body>
+</html>

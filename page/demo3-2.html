@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue的计算属性</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body >
+        <div id="app">
+            <div>{{ox}}</div>
+            <div>{{msg3()}}</div>
+            <div>{{msg2}}</div>
+            <input type="text" v-model="msg"/>
+        </div>
+        <script>
+            // 计算属性,它是只能针对属性操作的,并且不管使用计算属性几次,方法只执行一次
+            // 而方法,它可以做任何的事情;如果它被调用多次,就是执行了多次
+            var vm = new Vue({
+                el:'#app',// 页面使用了vue的范围指定
+                data:{// 定义页面属性
+                    msg:'abcd jiege xxxx',ox:'杰哥好'
+                },
+                methods: {// 可以定义页面使用的方法
+                    msg3(){
+                        if(this.msg=='a')return 'Niu X';
+                        return this.msg;
+                    },
+                },
+                computed: {
+                    msg2:function(){
+                        this.ox = 'hahaha';
+                        console.log('----msg2-------');
+                        return this.msg.split(' ').reverse().join('-');
+                    }
+                },
+            });
+        </script>
+    </body>
+</html>

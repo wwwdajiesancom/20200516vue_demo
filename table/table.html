@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table的用法</title>
+</head>
+<body>
+    
+    <!-- http://2002.sina.com.cn/
+        http://2004.sina.com.cn/
+
+
+        table,
+            它主要是来展示数据,当数据量比较大的时候,用table展示就比较清晰
+
+        table,有一个属性border,默认为0 
+            1.宽度、高度属性;table,td
+                width,
+                height
+                默认是按照内容来调整,我们可以根据width,heigth;默认是平均分配的width,heigth
+                如果给td设置了width,heigth,只能对应的变化,其它的是自我调整;总width,height不变
+
+            2.水平对齐,table,tr,td
+                table.align=left,center,right;控制table在浏览器水平方向的位置
+                tr.align=left,center,right;控制当前行所有内容的水平位置;
+                td.align=left,center,right;控制当前单元格的内容水平位置;
+                如果tr.align,td.align都有,以td为准;
+              垂直对齐,tr,td
+                tr.valign=top,bottom,middle,垂直方向的位置
+                td.valign=top,bottom,middle,都类似
+
+            3.外边框和内边框,table
+                两个单元格之间的距离,叫做外边距;cellspacing="2px",默认就是2
+                内边距,就是内容在td中与border的距离;cellpadding="1px"
+
+
+        细线表格：
+            通过cellspacing=0,虽然中间没有空隙了,但是其实他是table,td的边框合并到了一起,效果并不是我们要的细线表格;
+            所以,我们需要通过bgcolor来设置,背景颜色;
+            table,tr,td:bgcolor
+            给table.bgcolor=red;tr.bgcolor=white;table.cellspacing=1;
+
+        新的table连用标签：
+            1.<caption>table标题</caption>
+            2.标题标签,th,居中加粗
+
+        table的组成：
+            caption,
+            thead,
+            tbody,
+            tboot,行尾,结构和tbody一样
+            不过在设置了table的height时,thead,tboot会有一个自己默认的高度
+
+    -->
+
+    <table bgcolor="red" width="250px" height="250px" cellspacing="1">
+        <caption>table标题</caption>
+        <tr bgcolor="white">
+            <td bgcolor="black">1</td>
+            <td>2</td>
+        </tr>
+        <tr bgcolor="white">
+            <td>1</td>
+            <td>3</td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue中常用的属性</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body >
+        <div id="app">
+            <div ref="xxx">{{ox}}</div>
+            <div>{{msg3()}}</div>
+            <div>{{msg2}}</div>
+            <input type="text" v-model="msg"/>
+        </div>
+
+        <br />
+        <div>
+            vm.msg:{{vm.msg}}
+            <input type="button" value="确定" onclick="aa()" />
+        </div>
+        <script>
+            var vm = new Vue({
+                el:'#app',// 页面使用了vue的范围指定
+                data:{// 定义页面属性
+                    msg:'abcd jiege xxxx',ox:'杰哥好'
+                },
+                methods: {// 可以定义页面使用的方法
+                    msg3(){
+                        if(this.msg=='a')return 'Niu X';
+                        return this.msg;
+                    },
+                    al(){
+                        alert(this.msg);
+                    }
+                },
+                computed: {
+                    msg2:function(){
+                        this.ox = 'hahaha';
+                        console.log('----msg2-------');
+                        return this.msg.split(' ').reverse().join('-');
+                    }
+                },
+            });
+            // 如果我们想调用Vue里面的属性,方法怎么办
+            // 属性:vm.msg
+            // 方法:vm.al()
+            // 获取el整体dom元素,vm.$el
+            // 获取el中的其它dom元素,vm.$refs.xxx;xxx是el中其它元素的ref属性的值
+            function aa(){
+                console.log(vm.msg);
+                console.log(vm.$data.msg);
+                console.log(vm.msg2);
+                console.log(vm.msg3());
+                console.log(vm.$options);
+                console.log(vm.$el);
+                console.log(vm.$refs.xxx);
+            }
+        </script>
+    </body>
+</html>

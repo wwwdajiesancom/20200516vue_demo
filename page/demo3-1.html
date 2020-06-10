@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue自定义指令</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body >
+        <div id="app">
+            <div v-zidingyi="msg"></div>
+            <input type="text" v-model="msg"/>
+        </div>
+        <script>
+            // 有的时候,可能我们要实现一些特殊的效果,例如将div的颜色变红,将某个元素的边框变粗等;这些都可以用自定义指令实现
+            Vue.directive('zidingyi',{// 常用的就是bind,update;一般都这么写,Vue.directive('zidingyi',(el,binding)=>{});直接合并了bind,update
+                bind(el,binding){// 第一个钩子函数,el:代表指令所修饰的dom对象;binding:代表了指令自身
+                    el.style.color='red';
+                    el.innerHTML = binding.value;
+                    console.log('-----bind-------');
+                    console.log(el);
+                    console.log(binding);
+                },
+                update(el,binding){
+                    console.log(el);
+                    console.log(binding);
+                },// 当指令修饰的dom内容变化时,会触发
+                unbind(el,binding){
+                    console.log(el);
+                    console.log(binding);
+                },
+                inserted(el,binding){
+                    console.log(el);
+                    console.log(binding);
+                }// 被指令修饰的dom插入到其父节点(Root)时被触发
+            });
+            var vm = new Vue({
+                el:'#app',// 页面使用了vue的范围指定
+                data:{// 定义页面属性
+                    msg:'abcd'
+                },
+                methods: {// 可以定义页面使用的方法
+                },
+            });
+        </script>
+    </body>
+</html>
