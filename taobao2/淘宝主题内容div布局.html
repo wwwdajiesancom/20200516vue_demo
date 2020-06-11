@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝主题内容div布局</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>
+        #taobao_content{
+            height: 520px;
+            background-color: rgba(255, 200, 150, 1);
+            overflow: hidden;
+        }
+
+        #taobao_content .firstLeft{
+            height: 100%;
+            width: 895px;
+            background-color: rgba(0, 150, 100, 0.3);
+            overflow: hidden;
+        }
+
+        #taobao_content .firstLeft .sliderList{
+            height: 100%;
+            width: 190px;
+            background-color: red;
+        }
+
+        #taobao_content .firstLeft .imgTop{
+            height: 290px;
+            width: 600px;
+            background-color: red;
+        }
+
+        #taobao_content .firstLeft .imgBottom{
+            height: 227px;
+            width: 600px;
+            background-color:blueviolet;
+        }
+
+        #taobao_content .firstRight{
+            height: 100%;
+            background-color: rgba(1, 0, 50, 0.3);
+        }
+
+
+    </style>
+</head>
+<body>
+    
+<div id="taobao_content" class="layer clearfix">
+    <div class="fl firstLeft">
+        <div class="fl sliderList"></div>
+        <div class="fl imgTop"></div>
+        <div class="fl imgBottom"></div>
+    </div>
+    <div class="fr firstRight"></div>
+</div>
+
+
+</body>
+</html>
