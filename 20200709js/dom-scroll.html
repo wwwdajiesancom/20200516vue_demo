@@ -1,0 +1,210 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // IE8及以下不兼容
+        // window.pageXOffset; // 滚动条在x轴的位置
+        // window.pageYOffset; // 滚动条在y轴的位置
+
+        // IE8及以下用,由于兼容性特别的不好，下面的只有一种情况会生效
+        // document.body.scrollLeft;document.body.scrollTop;
+        // document.documentElement.scrollLeft;document.documentElement.scrollTop;
+        // 用的话，document.body.scrollLeft + document.documentElement.scrollLeft;
+
+        function getScroll(){
+            if(window.pageYOffset||window.pageXOffset){
+                return {
+                    x:window.pageXOffset,
+                    y:window.pageYOffset
+                };
+            }else{
+                return {
+                    x:document.body.scrollLeft+document.documentElement.scrollLeft,
+                    y:document.body.scrollTop+document.documentElement.scrollTop
+                }
+            }
+        }
+
+        // 查看可视区窗口的大小,就是我们编写的html
+        // IE8及以下不兼容
+        // window.innerWidth; // 可视区宽度
+        // window.innerHeight; // 可视区高度
+
+        // IE8及以下用，
+        // 标准模式：document.compatMode = 'CSS1Compat';顶部携带了：<!DOCTYPE html>
+        // document.documentElement.clientWidth;
+        // document.documentElement.clientHeight;
+        // 非标准模式：document.compatMode = 'BackCompat';顶部没有了：<!DOCTYPE html>
+        // document.body.clientHeight;
+        // document.body.clientWidth;
+        function getViewPort(){
+            if(window.innerHeight||window.innerWidth){
+                return {
+                    w:window.innerWidth,
+                    h:window.innerHeight
+                };
+            }
+            if(document.compatMode=='BackCompat'){
+                return {
+                    w:document.body.clientWidth,
+                    h:document.body.clientHeight
+                };
+            }
+            return {
+                w:document.documentElement.clientWidth,
+                h:document.documentElement.clientWidth
+            };
+        }
+
+
+
+        // domEle.getBoundingClientRect();返回一个对象,标注了元素所在document中的位置,top,bottom,left,right;widnth,height在老版的IE中没有
+        // 他获取的是静态的,并不会动态的变化
+
+        // 元素的尺寸，视觉上的
+        // domEle.offsetWidth,domEle.offsetHeight;元素的大小padding+height
+
+        // 元素的位置,如果元素定位,就按照定位来说
+        // domEle.offsetLeft;domEle.offsetTop;
+
+        // domEle.offsetParent;获取位置计算时所用的parent
+
+
+
+        // 滚动条
+        // 滚动,这两个方法是一样的
+        // window.scroll(x,y);window.scrollTo(x,y);
+        // 也是滚动,在原来之上累加
+        // window.scrollBy(x,y);
+
+
+        // 
+
+    </script>
+    <style>
+        *{
+            margin: 0;
+        }
+        div.w{
+            width: 100px;
+            height: 100px;
+            margin-left: 100px;
+            background-color: blueviolet;
+        }
+        div.n{
+            width: 20px;
+            height: 20px;
+            margin: 0 auto;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="w">
+        <div class="n"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

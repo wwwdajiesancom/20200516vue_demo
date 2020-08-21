@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+</head>
+<body>
+    <div>
+        <!-- dajiahao -->
+        <span></span>:<span></span>
+    </div>
+    <script>
+        var com = (function(){
+            var minuts = 0;
+            var seconds = 0;
+            var spanMinuts = document.getElementsByTagName('span')[0];
+            var spanSeconds = document.getElementsByTagName('span')[1];
+            
+            function writeToPage(){
+                spanMinuts.innerHTML = minuts;
+                spanSeconds.innerHTML = seconds;
+            }
+
+            function computer(){
+                var timer = setInterval(function(){
+                    seconds += 1;
+                    minuts += parseInt(seconds/60);
+                    seconds = seconds%60;
+                    writeToPage();
+                    if(seconds==59&&minuts==3)
+                    clearInterval(timer);
+                },1000);
+            }
+
+            return computer;
+        }());
+
+        com();
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <script src="../common_event.js"></script>
+</head>
+<body>
+    <div style="width: 100px;height: 100px;background-color: blueviolet;position: absolute;left: 0;top: 0;"></div>
+    <script>
+        var dragDiv = document.getElementsByTagName('div')[0];
+
+        drag(dragDiv);
+        function drag(ele){
+            ele.addEventListener('mousedown',function(e){
+                // 1.获取事件
+                e = CEI.getEvent(e);
+
+                // 2.获取鼠标点击时的,坐标
+                var pageX = e.pageX - parseInt(ele.style.left),pageY = e.pageY - parseInt(ele.style.top);
+
+                // 3.绑定事件
+                document.addEventListener('mousemove',move,false);
+                document.addEventListener('mouseup',deleteEvent,false);
+
+                // 4.定义相关的事件
+                function move(e1){
+                    e1 = CEI.getEvent(e1);
+                    var currPageX = e1.pageX,currPageY = e1.pageY;
+
+                    // 变换位置
+                    ele.style.left = (currPageX - pageX) + 'px';
+                    ele.style.top = (currPageY - pageY) + 'px';
+                }
+                function deleteEvent(e2){
+                    document.removeEventListener('mousemove',move);
+                    document.removeEventListener('mouseup',deleteEvent);
+                }
+
+            },false);
+            
+        }
+    </script>
+</body>
+</html>

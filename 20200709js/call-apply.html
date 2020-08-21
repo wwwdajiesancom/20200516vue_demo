@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call-apply</title>
+    <script>
+        // bytes,获取字符串的字节个数,大于255占用2个字节
+        function bytesLength(str){
+            str = new String(str);
+        }
+        Person.prototype.name = 'jie';
+        function Person(){
+            // 1.第一步,隐式的
+            // this = {
+            //     __proto__ : Person.prototype,
+            // }
+            this.jiege = 'jiege';
+            // 3.最后一步
+            // return this;
+        }
+        var person = new Person();
+        Person.prototype.name = 'ge';
+
+        // 原型,原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法
+        // Person.prototype   -- 原型,它是一个对象{},
+        // Person.prototype = {};
+        // 对象如何查看原型呢?隐式属性new Person().__proto__,{name: "abcd", constructor: ƒ}
+        // 对象如何查看构造函数呢?new Person().constructor,function Person(){this.jiege = 'jiege';}
+        // 原型的增、删、改、查;只能通过原型来操作，不能通过对象操作
+
+        // 原型的作用，可以定义一些共用的属性、方法；例如Person.prototype.腿 = 2;
+
+        // 原型,它是按照顺序执行的,并不会有提高的作用
+
+        // -------------------------------------------------------------------------------------------------
+        // call/apply
+
+        // function method(name,age){this.name = name;this.age = age;}
+        // 1.call,它是方法的一个方法;平时我们执行方法都是method();其实内部执行的是:method.call();
+        // call,就是用来执行方法的
+        // var obj1 = {};
+        // call(对象,参数1,参数2,参数3);
+        // 2.method.call(),它是执行method方法,method中的this==window
+        // 2.1.method.call(obj1,'jiege',12);这样,也是执行的method方法,不过method中的this就是obj1了,这就是改变this
+        // 作用：
+        // 1.改变this指向
+        // 2.改变this指向,可以用于继承
+
+        // apply,与call的差别;传参列表不同,apply(对象,参数数组),apply只有2个参数,参数列表是一个数组apply(this,[参数1,参数2,参数3])
+
+        // -------------------------------------------------------------------------------------------------
+        // 继承的实现,一共经过4个时期
+        // 1.通过MethodSon.prototype = new Method();继承,不过这样问题出现了,它是一级一级的
+        // 2.通过Method.call(MethodSon.this,);不过这样也不太好,每次都多执行了,只是少了代码
+        // 3.标准版
+        // function Father(){}
+        // function Son(){}
+        // Son.prototype = Father.prototype;
+        // 最常用的就是这种,不过如果给Son.prototype.name,Father也有了,所以不是太好,最终出现了一个圣母版
+        // 4.圣杯模式
+        // function F(){},F.prototype = Father.prototype;
+        // Son.prototype = new F();这样Son增加自己的原型方法就不会到Father上了
+        // 不过这里可以完善属性,__protyo__,constructor;如果不完善的话,它们会有问题
+        Father.prototype.lastName = 'jie';
+        function Father(){}
+        function inherit(Target,Origin){
+            function F(){}
+            F.prototype = Origin.prototype;
+            Target.prototype = new F();
+            // 这时,Target对象的constructor== f Origin(){}
+            // 所以,我们需要修改成Target
+            Target.prototype.constructor = Target;
+        }
+        inherit(Son,Father);
+        function Son(){}
+
+        // 也可以使用闭包
+        var inherit2 = (function(){
+            function F(){}
+            return function(Target,Origin){
+                F.prototype = Origin.prototype;
+                Target.prototype = new F();
+                // 这时,Target对象的constructor== f Origin(){}
+                // 所以,我们需要修改成Target
+                Target.prototype.constructor = Target;
+            };
+        }());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

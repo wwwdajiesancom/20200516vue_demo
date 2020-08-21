@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport,视口(可视区)
+        移动端开发,这个都需要设置的,一般默认的可视区是980px,
+
+        width=device-width||number,设置手机端的可视化宽度;number是一个具体的值,不过一般都不这么写,在androd下不太支持;
+        user-scalable=no||yes,是否允许缩放;IOS10不支持了(可以用事件解决TODO)
+        initial-scale=1.0,初始化比例;
+        minimum-scale=0.5,最小缩放比例
+        maximum-scale=1.0,最大缩放比例
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- 
+        一些常规设置：
+        禁用横屏显示、全屏；只有这两中内核的浏览器可以使用,其他的不太好使
+        x5浏览器:qq、wx
+            [name=x5-orientation][content=portrait]
+            [name=x5-fullscreen][content=true]
+        screen:uc
+            [name=screen-orientation][content=portrait]
+            [name=full-screen][content=yes]
+
+        禁用电话、邮件,默认的数字识别成电话
+        [name=format-detection][content='telephone=noe,email=no']
+        如果想大电话、邮件
+        <a href="tel:15838022425"></a>
+        <a href='mailto:loujie@qq.com'></a>
+    -->
+    <meta name="x5-orientation" content="protrait">
+    <!-- 像素比,window.devicePixelRatio,它是是一个数字,这个只能看,不能设置
+        将一个像素 放大至 n个像素来展示;
+        像素比,它和分辨率有关系,但是屏幕小,想让手机可以正常的显示,就有了箱数比
+        一般移动端开发,至少用750的设计图;
+    -->
+
+    <!-- 文件缩放、文字选中 TODO,事件中 -->
+
+    <!-- 移动端的常见问题：
+        Font Boosting,在文字我们没有给他设置height的时候,可能会被放大,在webkit内核
+            解决方案：设置height或者设置max-height
+
+        Fixed,固定定位,TODO,可以在事件里面解决
+            也可以用css实现,不过效果一般：
+            设置html的高度为100%,并去掉滚动条
+            html{
+                height: 100%;
+                overflow: hidden;
+                position: relative;
+            }
+            设置body的高度为100%,有滚动条
+            body{
+                height: 100%;
+                overflow: auto;
+            }
+            要固定的标签;不过和它紧邻的标签要增加一个margin-top,或margin-bottom
+            .fiexd_div{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+    -->
+
+    <!-- 适配：
+        1.百分比适配,width用百分比，高度还用px;
+            但是这种，非常的不方便，它只能配合其他的使用，而不能独自的使用;
+        2.viewport适配,这里面用到了缩放
+        当我们不设置width=device-width时,默认是980;
+        用到缩放,因为缩放其实就是将屏幕给变化了大小,所以
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        我们用js获取到宽度,并计算出一个缩放比例,动态的来生成viewport
+        (function(){
+            var screenWidth = window.screen.width;// 屏幕尺寸
+            var targetW = 750;// 目标尺寸,其实就是设计图的尺寸了
+            var scaleVal = screenWidth/targetW;
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'initial-scale='+scaleVal+', user-scalable=no, minimum-scale='+scaleVal+', maximum-scale='+scaleVal;
+            document.head.appendChild(meta);
+        })();
+        3.rem,
+            设置,html的font-size;
+            然后用less来生成css;
+
+    -->
+
+    <!-- 弹性盒模型
+        
+    
+    
+    -->
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    打击好，这是第一个页面
+    <div id="box">
+
+    </div>
+</body>
+</html>

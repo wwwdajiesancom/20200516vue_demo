@@ -1,0 +1,23 @@
+body{
+    /* 移动端,字体是没有宋体的,我们一般都用Helvetica */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+body * {
+    /* 禁止文字缩放 */
+    -webkit-text-size-adjust: 100%;
+    /* 文字选择,不太兼容 */
+    -webkit-user-select: none;
+}
+
+a,input,button{
+    /* 去掉高亮时的背景颜色, */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input,button{
+    /* 它们默认在手机端都是圆角的,这里面是去掉 */
+    -webkit-appearance: none;
+    border-radius: 0;
+}

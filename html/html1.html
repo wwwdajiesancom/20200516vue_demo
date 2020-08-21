@@ -5,13 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        button{
-            width: 50px;
-            height: 32px;
-        }
     </style>
 </head>
 <body>
-    <button>abc</button><button>abc</button>
+    <!-- 给input绑定待选列表
+        这个目前只有Opera
+        用到了h5标签,<datalist id="listdataId">
+                        <option>大<option>
+                        <option>小<option>
+                    </datalist>
+        <input type="text" list="listdataid">
+    -->
+    <input type="text" list="listdataId">
+    <datalist id="listdataId">
+        <option value="1">大</option>
+        <option value="2">小</option>
+        <option value="3">多</option>
+        <option value="4">少</option>
+    </datalist>
+
+    <!-- input的type属性,又新增了不少值,例如:email,url,number,date,color等;不过浏览器支持情况不太好 -->
+
+    <!-- h5标签,新增了30个;新增的一些标记性的标签是,video,audio;在h5之前,html只可以处理文本及图片,无法处理视频、音频
+
+        视频可能不是在每一个浏览器里面都可以播放,所以video有两种写法
+        audio,video用法差不多;
+
+        详情与概要标签,浏览器支持不好,
+        它主要是为了节约空间而设置的;
+        <details>
+            <summary>概要信息-标题</summary>
+            详情信息
+        </details>
+     -->
+     <video src=""></video>
+     <!-- 可以使多个浏览器都可以播放 -->
+     <video >
+        <source src="xx.mp4" type="video/mp4">
+        <source src="xx.webm" type="video/webm">
+        <source src="xx.ogg" type="video/ogg">
+     </video>
+
+     <!-- 跑马灯效果标签,marquee
+        direction:up,down,left,right 
+        behavior:
+    -->
+     <marquee behavior="" direction=""></marquee>
 </body>
 </html>

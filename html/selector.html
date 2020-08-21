@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            height: 500px;
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+        ul>li{
+            list-style: none;
+            height: 75px;
+            width: 150px;
+            margin: 15px auto;
+            background-color: darkkhaki;
+            line-height: 75px;
+            text-align: center;
+        }
+        /* CSS3中的2D效果：
+
+            2D：涉及到的属性是:transform
+
+            旋转：transform:rotate(45deg);// 正时针旋转45度;
+            移动：transform:translate(100px,0);// 水平移动100px;向右;第二个参数是竖直方向;负数的话，分别是向left,top
+            缩放：transform:scale(1,1.5);// 缩放的倍数,分别是水平、垂直方向的
+
+            旋转的时候,是按照元素的中心点旋转的,那么我们想修改这个这个点需要用到：这个点也叫做：形变中心点
+            transform-origin:0px 0px;// 分别是水平、垂直的坐标点;这个数也可以是百分比;
+            
+            */
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li>正常</li>
+        <li>旋转</li>
+        <li>平移</li>
+        <li>缩放</li>
+        <li>综合</li>
+    </ul>
+
+</body>
+</html>

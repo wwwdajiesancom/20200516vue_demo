@@ -1,0 +1,149 @@
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.height1 {
+  height: 500px;
+  padding-bottom: 2px;
+}
+#file_list {
+  box-sizing: border-box;
+  width: 500px;
+  border: 1px solid #999999;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+#file_list div.title {
+  box-sizing: border-box;
+  height: 40px;
+  background-color: #f2f2f2;
+  font-size: 0;
+  line-height: 40px;
+}
+#file_list div.title span {
+  font-size: 16px;
+}
+#file_list div.title span.content {
+  padding-left: 5px;
+}
+#file_list div.title span.count {
+  padding-left: 10px;
+}
+#file_list div.title span.img {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(img/up_down.png);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+#file_list div.title span.up {
+  transform: rotate(180deg);
+}
+#file_list div.down {
+  border-bottom: 1px solid #999999;
+}
+#file_list .nonelj {
+  display: none;
+}
+#file_list div.files {
+  box-sizing: border-box;
+  height: 460px;
+}
+#file_list div.files div.content {
+  position: relative;
+  height: 455px;
+  overflow: auto;
+  padding: 0 3px;
+}
+#file_list div.files div.content div.row {
+  box-sizing: border-box;
+  width: 490px;
+  height: 70px;
+  padding: 0 10px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+#file_list div.files div.content div.row span.icon {
+  float: left;
+  width: 30px;
+  height: 30px;
+  background-color: #f00;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+#file_list div.files div.content div.row div.fileinfo {
+  box-sizing: border-box;
+  float: left;
+  width: 350px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+#file_list div.files div.content div.row div.fileinfo span {
+  overflow: hidden;
+  display: block;
+}
+#file_list div.files div.content div.row div.fileinfo span.filetitle {
+  height: 30px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 30px;
+  color: #000;
+  font-weight: 300;
+}
+#file_list div.files div.content div.row div.fileinfo span.progress {
+  margin-top: 5px;
+  height: 3px;
+  width: 100%;
+  background-color: #e4e4e4;
+  border-radius: 3px;
+}
+#file_list div.files div.content div.row div.fileinfo span.progress span.prog_success {
+  background-color: #0c3;
+  height: 100%;
+  width: 50%;
+  border-radius: 3px;
+}
+#file_list div.files div.content div.row div.fileinfo span.tip {
+  height: 20px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  color: #999;
+  font-weight: 300;
+}
+#file_list div.files div.content div.row div.fileinfo span.tip_fail {
+  color: #f00;
+}
+#file_list div.files div.content div.row div.fileinfo span.tip_uploading {
+  color: #0c3;
+}
+#file_list div.files div.content div.row span.operate {
+  float: right;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 20px;
+  margin-right: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+#file_list div.files div.content div.row span.o_cancel {
+  color: #38adff;
+}
+#file_list div.files div.content div.row span.o_reload {
+  color: #f66;
+}
+#file_list div.files div.content div.row span.o_remove {
+  color: #f00;
+}
+#file_list div.files div.content div.row {
+  border-bottom: 1px solid #cccccc;
+}

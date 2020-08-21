@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件展示</title>
+    <link rel="stylesheet" href="files.css">
+    <script src="../../js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="file_list">
+        <div class="title">
+            <span class="content">上传列表</span>
+            <span class="content count">(0个)</span>
+            <span class="img up"></span>
+        </div>
+        <div class="files nonelj">
+            <div class="content">
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate"></span>
+                    <div class="fileinfo">
+                        <span class="filetitle" title="大较好大较好大较好大较好大较好大较好大较好大较好大较好大较好">大较好大较好大较好大较好大较好大较好大较好大较好大较好大较好</span>
+                        <span class="progress"></span>
+                        <span class="tip">失败，正常</span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate"></span>
+                    <div class="fileinfo">
+                        <span class="filetitle" title="大较好大较好大较好大较好大较好大较好大较好大较好大较好大较好">大较好大较好大较好大较好大较好大较好大较好大较好大较好大较好</span>
+                        <span class="progress"></span>
+                        <span class="tip">失败，正常</span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate"></span>
+                    <div class="fileinfo">
+                        <span class="filetitle" title="大较好大较好大较好大较好大较好大较好大较好大较好大较好大较好">大较好大较好大较好大较好大较好大较好大较好大较好大较好大较好</span>
+                        <span class="progress"></span>
+                        <span class="tip">失败，正常</span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate"></span>
+                    <div class="fileinfo">
+                        <span class="filetitle"></span>
+                        <span class="progress">
+                            <span class="prog_success"></span>
+                        </span>
+                        <span class="tip"></span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate"></span>
+                    <div class="fileinfo">
+                        <span class="filetitle"></span>
+                        <span class="progress">
+                            <span class="prog_success"></span>
+                        </span>
+                        <span class="tip"></span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate o_reload">重新上传</span>
+                    <div class="fileinfo">
+                        <span class="filetitle"></span>
+                        <span class="progress">
+                            <span class="prog_success"></span>
+                        </span>
+                        <span class="tip"></span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate o_cancel">取消上传</span>
+                    <div class="fileinfo">
+                        <span class="filetitle"></span>
+                        <span class="progress">
+                            <span class="prog_success"></span>
+                        </span>
+                        <span class="tip"></span>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <span class="icon"></span>
+                    <span class="operate o_remove">删除文件</span>
+                    <div class="fileinfo">
+                        <span class="filetitle"></span>
+                        <span class="progress">
+                            <span class="prog_success"></span>
+                        </span>
+                        <span class="tip"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var fileListImg = document.querySelector('#file_list span.img');
+        fileListImg.addEventListener('click',function(e){
+            if($(this).hasClass('up')){
+                $(this).removeClass('up');
+                $(this).closest('div#file_list').addClass('height1')
+                $('div#file_list>.files').removeClass('nonelj');
+                $(this).closest('div.title').addClass('down');
+            }else{
+                $(this).addClass('up');
+                $(this).closest('div.title').removeClass('down');
+                $('div#file_list>.files').addClass('nonelj');
+                $(this).closest('div#file_list').removeClass('height1');
+            }
+        },false);
+    </script>
+</body>
+</html>

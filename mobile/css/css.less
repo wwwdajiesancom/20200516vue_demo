@@ -1,0 +1,58 @@
+@r:50rem;
+
+body{
+    margin: 0;
+}
+
+#box{
+    width: 100%;
+    height: 200/@r;
+    border: 1px solid red;
+
+    // 用的话，新的老的都需要写,因为不兼容
+    // // 新弹性盒模型,这些都是在root上写的
+    // display: flex;
+    
+    // 主轴的方向,影响元素的left,right,top,bottom;及排列倒叙
+    // // 主轴设置:横向,从左向右row;竖向,从上向下column
+    // flex-direction: row;
+    // // 主轴方向设置:横向,默认→、竖向,默认↓;它们可以反过来row-reverse/column-reverse
+    // flex-direction: row-reverse;
+    
+    // 在指定的方向上，元素的位置,这个主要是设置富裕空间的,就是没有被元素占用的位置
+    // 水平方向：flex-start,flex-end,center,space-between,space-around
+    // justify-content: flex-start,flex-end,center,space-between,space-around;
+    // // 垂直方向
+    // align-items: flex-end,flex-start,center,baseline;
+
+    // 以下都是在child元素中写的-------------------------------------------------------------------------
+    // 元素的富裕空间分配,按照1:1的比例
+    // flex-grow: 1;
+    // 设置元素的位置,数字越小越靠前,可以设置为负数
+    // order: 1;
+
+    // ------------------------------------------------------------------------------------------------
+    // 老版弹性盒模型;
+    // -webkit-box-direction,它设置之后,与新版的有什么区别
+    //      新版的,水平方向,如果reverse,元素都到right了;而老版的还在left;不过元素都倒叙了;垂直方向类似
+    // display: -webkit-box;
+    // // 主轴设置:横向,从左向右horizontal;竖向,从上向下vertical
+    // -webkit-box-orient: vertical;
+    // // 主轴方向设置,需要结合使用normal,reverse
+    // -webkit-box-direction: reverse;
+    // // 水平方向：
+    // -webkit-box-pack: start,end,center,justify;
+    // // 垂直
+    // -webkit-box-align: start,end,center,baseline;
+
+    // 以下都是在child元素中写的-------------------------------------------------------------------------
+    // -webkit-box-flex: 1;
+    // 最好都是大于0的值
+    // -webkit-box-ordinal-group: 1;
+    div{
+        width: 50/@r;
+        height: 50/@r;
+        background-color: black;
+        margin: auto;
+    }
+}

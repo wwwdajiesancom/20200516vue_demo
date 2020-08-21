@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型测试</title>
+    <script>
+        function Person(){}
+
+        // prototype:原型,原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。
+        // 默认的prototype中有2个属性,constructor,__proto__
+        // 但是,如果强暴性的给原型设置值,例如Person.prototype = {};就什么都没有了,所以最好不要这么写
+        Person.prototype = {};
+        console.log(Person.prototype);
+
+        // 命名空间问题,可以使用闭包来解决变量名冲突问题,变量的污染等
+        // 闭包,立即执行函数(它返回一个方法)
+
+        var initAd = (function(){
+
+            var a = 'a';
+
+            function b(){
+                console.log(a);
+            }
+
+            return function(){
+                b();
+            }
+        }());
+
+
+        // 对象,遍历
+        // {}.hasOwnProperty(prop)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

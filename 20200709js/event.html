@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <style>
+        div.p1{
+            background-color: blueviolet;
+            height: 100px;
+            width: 100px;
+        }
+        div.c1{
+            margin-left: 100px;
+            height: 200px;
+            width: 200px;
+            background-color: brown;
+        }
+
+        div.cc1{
+            margin-left: 200px;
+            height: 300px;
+            width: 300px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div class="p1">
+        <div class="c1">
+            <div class="cc1"></div>
+        </div>
+    </div>
+    <script>
+        // 1.事件绑定,有3种
+        // a.ele.onclick = function(){};// 兼容性很好，但是指定绑定一个事件，相当于写在行间上了
+        // b.ele.addEventListener('click',function(){},false);// IE9及以下，不兼容;可以绑定多个
+        // c.ele.attachEvent('onclick',function(){});// IE9及以下用
+        // this的问题,a,b都指向ele,但c:attachEvent指向的是window;解决方式：ele.attachEvent('onclick',function(){hander.call(ele,...arguments)});
+        var lis = document.querySelectorAll('ul>li');
+        for(let i = 0;i<lis.length;i++){
+            ((function(j){
+                lis[j].addEventListener('click',function(){
+                    console.log(j);
+                });
+            })(i));
+        }
+
+
+        // 2.事件解除,
+        // ele.onclick = false/''/null;
+        // ele.addEventListener('click',func1,false)-->ele.removeEventListener('click',func1,false);注意func1需要是同一个引用
+        // ele.attachEvent('onclick',func1)--->ele.detachEvent('onclick',func1);func1同一个引用函数
+
+
+
+        // 3.事件冒泡
+        // 结构上（非视觉上）嵌套元素，子元素事件上父元素冒泡
+        // 4.事件捕获,
+        var divs = document.getElementsByTagName('div');
+        divs[0].addEventListener('click',function(){
+            console.log('p1');
+        });
+        divs[1].addEventListener('click',function(){
+            console.log('c1');
+        });
+        divs[2].addEventListener('click',function(){
+            console.log('cc1');
+        });
+
+        // 5.鼠标事件
+        // click(单击),dbclick(双击)
+        // mousedown(鼠标点击按下),mousemove(鼠标移动),movseup(鼠标抬起)
+        // contextmenu(右键菜单),mouseover,mouseout,mouseenter,mouseleave
+
+        // 6.
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传</title>
+</head>
+<body>
+    
+    <input type="file" multiple />
+
+    <script>
+
+        var fileUpload = document.getElementsByTagName('input')[0];
+
+        var list = new Set();
+
+        fileUpload.onchange = function(){
+            console.log(list.size);
+            var len = fileUpload.files.length;
+            for(let i = 0;i<len;i++)
+                list.add(fileUpload.files[i]);
+            console.log(list.size);
+        }
+
+    </script>
+
+</body>
+</html>
