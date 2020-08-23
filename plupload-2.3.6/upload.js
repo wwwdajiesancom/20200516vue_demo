@@ -1,12 +1,5 @@
 var obj =   {
-    "accessid": "LTAI4G7qr9KVs6K8U9wnbzw4",
-    "policy": "eyJleHBpcmF0aW9uIjoiMjAyMC0wOC0xOFQxMToxODowNi43NTVaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCIxLyJdXX0=",
-    "signature": "8PRqMCwJfeJYnLMwSdTWMuvs3aY=",
-    "dir": "1/",
-    "host": "http://pysx.oss-cn-beijing.aliyuncs.com",
-    "expire": "1597749486",
-    "callback": "eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vYXBpLWRldi5jbG91ZHAuY2MvY2xvdWRwU2VydmVyL3YxL2FkbWluL29zcy92ZXJpZnkiLCJjYWxsYmFja0JvZHkiOiJ7XFxcImJ1Y2tldFxcXCI6JHtidWNrZXR9LFxcXCJmaWxlbmFtZVxcXCI6JHtvYmplY3R9LFxcXCJzaXplXFxcIjoke3NpemV9LFxcXCJtaW1lVHlwZVxcXCI6JHttaW1lVHlwZX0sXFxcImlkXFxcIjo2MX0iLCJjYWxsYmFja0JvZHlUeXBlIjoiYXBwbGljYXRpb24vanNvbiJ9",
-    "bucket": "pysx"
+    // 这是ali的签名
 };
 
 var fileInfoLj = {
@@ -55,7 +48,6 @@ var fileInfoLj = {
                 browse_button:fileInfoLj.getSfs(),
                 flash_swf_url : '../../libs/plupload-2.3.6/js/Moxie.swf',
                 silverlight_xap_url : '../../libs/plupload-2.3.6/js/Moxie.xap',
-                url : 'http://oss.aliyuncs.com',
                 filters:{},
                 init:{
                     PostInit:function(){
@@ -183,7 +175,6 @@ fileInfoLj.getUploader();
 // 	// container: document.getElementById('container'),
 // 	flash_swf_url : 'js/Moxie.swf',
 // 	silverlight_xap_url : 'js/Moxie.xap',
-//     url : 'http://oss.aliyuncs.com',
 
 //     filters: {
 //         // mime_types : [ //只允许上传图片和zip文件
